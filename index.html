@@ -247,7 +247,7 @@ footer.site-footer a { color: var(--accent); }
   <header class="masthead">
     <h1>医療費控除 計算ツール</h1>
     <p class="lede">1年間に支払った医療費と保険金等の補填額を入力するだけで、医療費控除額と所得税・住民税の還付額の目安をすぐ計算します。家族分の医療費も合算できます。</p>
-    <span class="updated-note">基準 最終確認日: 2026年9月26日（国税庁 タックスアンサー <a href="https://www.nta.go.jp/taxes/shiraberu/taxanswer/shotoku/1120.htm" target="_blank" rel="noopener">No.1120</a>・<a href="https://www.nta.go.jp/taxes/shiraberu/taxanswer/shotoku/1131.htm" target="_blank" rel="noopener">No.1131</a>・<a href="https://www.nta.go.jp/taxes/shiraberu/taxanswer/shotoku/2030.htm" target="_blank" rel="noopener">No.2030</a> にもとづく）</span>
+    <span class="updated-note">基準 最終確認日: 2026年9月27日（国税庁 タックスアンサー <a href="https://www.nta.go.jp/taxes/shiraberu/taxanswer/shotoku/1120.htm" target="_blank" rel="noopener">No.1120</a>・<a href="https://www.nta.go.jp/taxes/shiraberu/taxanswer/shotoku/1131.htm" target="_blank" rel="noopener">No.1131</a>・<a href="https://www.nta.go.jp/taxes/shiraberu/taxanswer/shotoku/2030.htm" target="_blank" rel="noopener">No.2030</a>、令和7・8年度税制改正の給与所得控除・基礎控除の見直しに対応済み）</span>
   </header>
 
   <div class="notice-box">
@@ -422,13 +422,22 @@ footer.site-footer a { color: var(--accent); }
 (function () {
   function yen(n) { return Math.round(n).toLocaleString('ja-JP') + '円'; }
 
+  // 給与所得控除（令和8年分以後。国税庁タックスアンサーNo.1410にもとづく）
   function salaryDeduction(income) {
-    if (income <= 1625000) return 550000;
-    if (income <= 1800000) return Math.round(income * 0.4 - 100000);
+    if (income <= 2200000) return 740000;
     if (income <= 3600000) return Math.round(income * 0.3 + 80000);
     if (income <= 6600000) return Math.round(income * 0.2 + 440000);
     if (income <= 8500000) return Math.round(income * 0.1 + 1100000);
     return 1950000;
+  }
+
+  // 所得税の基礎控除（令和7・8年分の時限措置。国税庁「基礎控除の見直し等」にもとづく）
+  function basicDeduction(salaryIncome) {
+    if (salaryIncome <= 1320000) return 950000;
+    if (salaryIncome <= 3360000) return 880000;
+    if (salaryIncome <= 4890000) return 680000;
+    if (salaryIncome <= 6550000) return 630000;
+    return 580000;
   }
 
   function socialInsurance(income, ageGroup) {
@@ -467,7 +476,7 @@ footer.site-footer a { color: var(--accent); }
     var netMedical = Math.max(0, medicalExpense - reimbursement);
     var medicalDeduction = Math.min(2000000, Math.max(0, netMedical - threshold));
 
-    var taxableForIncomeTaxBefore = Math.max(0, salaryIncome - socialIns - 480000);
+    var taxableForIncomeTaxBefore = Math.max(0, salaryIncome - socialIns - basicDeduction(salaryIncome));
     var taxableForIncomeTaxAfter = Math.max(0, taxableForIncomeTaxBefore - medicalDeduction);
     var incomeTaxRefund = incomeTax(taxableForIncomeTaxBefore) - incomeTax(taxableForIncomeTaxAfter);
 
