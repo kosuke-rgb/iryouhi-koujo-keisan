@@ -261,7 +261,7 @@ footer.site-footer a { color: var(--accent); }
   <header class="masthead">
     <h1>医療費控除 計算ツール</h1>
     <p class="lede">1年間に支払った医療費と保険金等の補填額を入力するだけで、医療費控除額と所得税・住民税の還付額の目安をすぐ計算します。家族分の医療費も合算できます。</p>
-    <span class="updated-note">基準 最終確認日: 2026年9月27日（国税庁 タックスアンサー <a href="https://www.nta.go.jp/taxes/shiraberu/taxanswer/shotoku/1120.htm" target="_blank" rel="noopener">No.1120</a>・<a href="https://www.nta.go.jp/taxes/shiraberu/taxanswer/shotoku/1131.htm" target="_blank" rel="noopener">No.1131</a>・<a href="https://www.nta.go.jp/taxes/shiraberu/taxanswer/shotoku/2030.htm" target="_blank" rel="noopener">No.2030</a>、令和7・8年度税制改正の給与所得控除・基礎控除の見直しに対応済み）</span>
+    <span class="updated-note">基準 最終確認日: 2026年10月2日（令和8年度税制改正の基礎控除（合計所得489万円以下は104万円）に対応、国税庁 タックスアンサー <a href="https://www.nta.go.jp/taxes/shiraberu/taxanswer/shotoku/1120.htm" target="_blank" rel="noopener">No.1120</a>・<a href="https://www.nta.go.jp/taxes/shiraberu/taxanswer/shotoku/1131.htm" target="_blank" rel="noopener">No.1131</a>・<a href="https://www.nta.go.jp/taxes/shiraberu/taxanswer/shotoku/2030.htm" target="_blank" rel="noopener">No.2030</a>、令和7・8年度税制改正の給与所得控除・基礎控除の見直しに対応済み）</span>
   </header>
 
   <div class="notice-box">
@@ -450,13 +450,16 @@ footer.site-footer a { color: var(--accent); }
     return 1950000;
   }
 
-  // 所得税の基礎控除（令和7・8年分の時限措置。国税庁「基礎控除の見直し等」にもとづく）
+  // 所得税の基礎控除（令和8年分。本則62万円＋特例加算：合計所得489万円以下は42万円、655万円以下は5万円。
+  // 令和8年度税制改正・国税庁タックスアンサーNo.1199にもとづく。引数は給与所得＝合計所得金額とみなす）
   function basicDeduction(salaryIncome) {
-    if (salaryIncome <= 1320000) return 950000;
-    if (salaryIncome <= 3360000) return 880000;
-    if (salaryIncome <= 4890000) return 680000;
-    if (salaryIncome <= 6550000) return 630000;
-    return 580000;
+    if (salaryIncome <= 4890000) return 1040000;
+    if (salaryIncome <= 6550000) return 670000;
+    if (salaryIncome <= 23500000) return 620000;
+    if (salaryIncome <= 24000000) return 480000;
+    if (salaryIncome <= 24500000) return 320000;
+    if (salaryIncome <= 25000000) return 160000;
+    return 0;
   }
 
   function socialInsurance(income, ageGroup) {
