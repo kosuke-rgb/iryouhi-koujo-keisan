@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>医療費控除 計算ツール｜いくら戻る？対象になる費用の一覧【令和8年分】</title>
-<meta name="description" content="1年間に支払った医療費と保険金等の補填額を入れるだけで、医療費控除額と所得税・住民税の還付額の目安がわかる無料ツールです。家族分の医療費も合算できます。">
+<meta name="description" content="1年間に支払った医療費と保険金等の補填額を入れるだけで、医療費控除額と所得税・住民税の還付額の目安がわかる無料ツールです。家族分の医療費も合算できます。12月の支払いの扱いなど、年末までに確認したいポイントと税率別の還付額の早見表つき。">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://webtools-labs.com/iryouhi-koujo-keisan/">
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2370765779014113" crossorigin="anonymous"></script>
@@ -93,6 +93,16 @@
       "@type": "Question",
       "name": "確定申告の期限を過ぎても医療費控除の申告はできますか？",
       "acceptedAnswer": { "@type": "Answer", "text": "はい。医療費控除だけを目的とした申告は「還付申告」として扱われ、対象の年の翌年1月1日から5年間提出できます。過去数年分さかのぼって申告することも可能です。" }
+    },
+    {
+      "@type": "Question",
+      "name": "12月に受診して、医療費を翌年1月に払った場合はどちらの年の医療費控除になりますか？",
+      "acceptedAnswer": { "@type": "Answer", "text": "実際に支払った年の医療費控除になります。12月に受診しても、支払いが翌年1月なら翌年分の医療費です。医療費控除は、その年の1月1日から12月31日までに支払った医療費で計算し、未払いの医療費は支払うまで対象になりません。" }
+    },
+    {
+      "@type": "Question",
+      "name": "医療費控除で戻ってくる税金はいくらくらいですか？",
+      "acceptedAnswer": { "@type": "Answer", "text": "医療費控除の額（医療費 − 保険金などの補填額 − 10万円）に、所得税率と住民税率（10%）をかけた額が目安です。たとえば医療費控除が5万円の場合、所得税率5%なら約7,600円、10%なら約1万円、20%なら約1.5万円が、所得税の還付と翌年度の住民税の軽減を合わせて戻る・安くなる計算です。" }
     }
   ]
 }
@@ -269,7 +279,7 @@ footer.site-footer a { color: var(--accent); }
   <header class="masthead">
     <h1>医療費控除 計算ツール</h1>
     <p class="lede">1年間に支払った医療費と保険金等の補填額を入力するだけで、医療費控除額と所得税・住民税の還付額の目安をすぐ計算します。家族分の医療費も合算できます。</p>
-    <span class="updated-note">基準 最終確認日: 2026年10月2日（令和8年度税制改正の基礎控除（合計所得489万円以下は104万円）に対応、国税庁 タックスアンサー <a href="https://www.nta.go.jp/taxes/shiraberu/taxanswer/shotoku/1120.htm" target="_blank" rel="noopener">No.1120</a>・<a href="https://www.nta.go.jp/taxes/shiraberu/taxanswer/shotoku/1131.htm" target="_blank" rel="noopener">No.1131</a>・<a href="https://www.nta.go.jp/taxes/shiraberu/taxanswer/shotoku/2030.htm" target="_blank" rel="noopener">No.2030</a>、令和7・8年度税制改正の給与所得控除・基礎控除の見直しに対応済み）</span>
+    <span class="updated-note">基準 最終確認日: 2026年11月10日（令和8年度税制改正の基礎控除（合計所得489万円以下は104万円）に対応、国税庁 タックスアンサー <a href="https://www.nta.go.jp/taxes/shiraberu/taxanswer/shotoku/1120.htm" target="_blank" rel="noopener">No.1120</a>・<a href="https://www.nta.go.jp/taxes/shiraberu/taxanswer/shotoku/1131.htm" target="_blank" rel="noopener">No.1131</a>・<a href="https://www.nta.go.jp/taxes/shiraberu/taxanswer/shotoku/2030.htm" target="_blank" rel="noopener">No.2030</a>、令和7・8年度税制改正の給与所得控除・基礎控除の見直しに対応済み）</span>
     <p class="ad-disclosure" style="font-size:0.75rem;opacity:0.7;margin:0.5rem 0 0;">※当サイトはアフィリエイト広告（PR）を利用しています。</p>
   </header>
 
@@ -380,6 +390,31 @@ footer.site-footer a { color: var(--accent); }
     <p>病院にあまり行かず、医療費の合計が10万円に届かない人でも、対象の市販薬を年12,000円より多く買っていれば、セルフメディケーション税制で控除を受けられる場合があります。反対に、通院や入院で医療費が10万円を大きく超える年は、通常の医療費控除の方が控除額は大きくなります。</p>
   </section>
 
+  <section id="nenmatsu">
+    <h2>年末までに確認したいこと（2026年分の医療費控除）</h2>
+    <p>医療費控除は、<strong>1月1日〜12月31日に実際に支払った医療費</strong>で計算します。2026年分の申告に入るのは、2026年12月31日までに支払った分です。年末が近いいまのうちに、次の点を確認しておくと申告がスムーズです。</p>
+    <ul style="padding-left:1.3rem;">
+      <li><strong>12月に受診しても、支払いが翌年なら翌年分です。</strong>入院費などを退院時や翌月にまとめて払う場合は、支払った日の年の医療費になります。未払いの医療費は、実際に支払うまで控除の対象になりません。</li>
+      <li><strong>今年の合計がいくらになりそうか見積もる。</strong>家族の分も合わせて、10万円（総所得金額等が200万円未満なら所得の5%）を超えそうかを確認します。歯の治療など、もともと受ける予定の治療が年をまたぐ場合は、支払いの年によってどちらの年の医療費になるかが変わります。</li>
+      <li><strong>領収書をまとめておく。</strong>健康保険から届く「医療費のお知らせ」は、申告に使えますが、年の後半（11〜12月など）の分が載っていないことが多いです。載っていない月の分や、市販薬・通院の交通費は、領収書や記録をもとに明細書に書きます。</li>
+    </ul>
+    <h3 style="font-size:1rem;margin:1rem 0 0.4rem;">医療費控除の額と戻ってくる税金の目安（所得税率別）</h3>
+    <div class="ref-table">
+      <table>
+        <thead><tr><th>医療費控除の額</th><th class="num">所得税率5%</th><th class="num">所得税率10%</th><th class="num">所得税率20%</th></tr></thead>
+        <tbody>
+          <tr><td>1万円</td><td class="num">約1,500円</td><td class="num">約2,000円</td><td class="num">約3,000円</td></tr>
+          <tr><td>5万円</td><td class="num">約7,600円</td><td class="num">約10,100円</td><td class="num">約15,200円</td></tr>
+          <tr><td>10万円</td><td class="num">約15,100円</td><td class="num">約20,200円</td><td class="num">約30,400円</td></tr>
+          <tr><td>20万円</td><td class="num">約30,200円</td><td class="num">約40,400円</td><td class="num">約60,800円</td></tr>
+          <tr><td>30万円</td><td class="num">約45,300円</td><td class="num">約60,600円</td><td class="num">約91,300円</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="disclaimer">医療費控除の額は「支払った医療費 − 保険金などで補填された額 − 10万円」です。所得税（復興特別所得税2.1%を含む）の還付と、翌年度の住民税（税率10%）の軽減を合わせた目安です。たとえば医療費が年15万円なら控除は5万円で、所得税率10%なら合計約1万円が戻る・安くなる計算です。</p>
+  </section>
+
+
   <section>
     <h2>会社員が医療費控除を受ける流れ</h2>
     <p>医療費控除は年末調整では受けられないため、会社員も自分で確定申告をします。</p>
@@ -448,6 +483,14 @@ footer.site-footer a { color: var(--accent); }
     <details class="faq-item">
       <summary>確定申告の期限を過ぎても医療費控除の申告はできますか？</summary>
       <p>はい。医療費控除だけを目的とした申告は「還付申告」として扱われ、対象の年の翌年1月1日から5年間提出できます。過去数年分さかのぼって申告することも可能です。</p>
+    </details>
+    <details class="faq-item">
+      <summary>12月に受診して、医療費を翌年1月に払った場合はどちらの年の医療費控除になりますか？</summary>
+      <p>実際に支払った年の医療費控除になります。12月に受診しても、支払いが翌年1月なら翌年分の医療費です。医療費控除は、その年の1月1日から12月31日までに支払った医療費で計算し、未払いの医療費は支払うまで対象になりません。</p>
+    </details>
+    <details class="faq-item">
+      <summary>医療費控除で戻ってくる税金はいくらくらいですか？</summary>
+      <p>医療費控除の額（医療費 − 保険金などの補填額 − 10万円）に、所得税率と住民税率（10%）をかけた額が目安です。たとえば医療費控除が5万円の場合、所得税率5%なら約7,600円、10%なら約1万円、20%なら約1.5万円が、所得税の還付と翌年度の住民税の軽減を合わせて戻る・安くなる計算です。</p>
     </details>
   </section>
 
