@@ -190,7 +190,7 @@ tr.best { background: var(--best-bg); }
 tr.na td { color: var(--muted); }
 
 .ref-table { overflow-x: auto; }
-.ref-table table { width: 100%; border-collapse: collapse; font-size: 0.86rem; min-width: 460px; }
+.ref-table table { width: 100%; border-collapse: collapse; font-size: 0.86rem; min-width: 0; }
 .ref-table th, .ref-table td { padding: 0.5rem 0.5rem; border-bottom: 1px solid var(--line); text-align: left; }
 .ref-table td.num { font-variant-numeric: tabular-nums; text-align: right; }
 
@@ -271,6 +271,15 @@ footer.site-footer a { color: var(--accent); }
 .pr-box .pr-cta-wrap { text-align: center; margin: 0.9rem 0 0; }
 .pr-box .pr-cta-wrap .pr-cta { font-size: 0.95rem; padding: 0.75rem 1.6rem; box-shadow: 0 2px 6px rgba(0,0,0,0.12); }
 .pr-box .pr-cta:hover { opacity: 0.85; }
+/* スマホで表が画面からはみ出さないように（2026-11-17） */
+@media (max-width: 600px) {
+  .ref-table table { font-size: 0.8rem; }
+  .ref-table th, .ref-table td { padding: 0.45rem 0.3rem; }
+  .ref-table th, .ref-table td:first-child { white-space: normal; }
+  .ref-table td.nw { white-space: nowrap; }
+  .ref-table th:first-child, .ref-table td:first-child { min-width: 5em; position: sticky; left: 0; z-index: 1; background: var(--bg); box-shadow: 1px 0 0 var(--line); }
+  .ref-table tr.best td:first-child, .ref-table tr.total td:first-child, .ref-table tr.next td:first-child, .ref-table tr.highlight td:first-child { background: var(--best-bg, var(--bg)); }
+}
 </style>
 </head>
 <body>
@@ -403,11 +412,11 @@ footer.site-footer a { color: var(--accent); }
       <table>
         <thead><tr><th>医療費控除の額</th><th class="num">所得税率5%</th><th class="num">所得税率10%</th><th class="num">所得税率20%</th></tr></thead>
         <tbody>
-          <tr><td>1万円</td><td class="num">約1,500円</td><td class="num">約2,000円</td><td class="num">約3,000円</td></tr>
-          <tr><td>5万円</td><td class="num">約7,600円</td><td class="num">約10,100円</td><td class="num">約15,200円</td></tr>
-          <tr><td>10万円</td><td class="num">約15,100円</td><td class="num">約20,200円</td><td class="num">約30,400円</td></tr>
-          <tr><td>20万円</td><td class="num">約30,200円</td><td class="num">約40,400円</td><td class="num">約60,800円</td></tr>
-          <tr><td>30万円</td><td class="num">約45,300円</td><td class="num">約60,600円</td><td class="num">約91,300円</td></tr>
+          <tr><td>1万円</td><td class="num nw">約1,500円</td><td class="num nw">約2,000円</td><td class="num nw">約3,000円</td></tr>
+          <tr><td>5万円</td><td class="num nw">約7,600円</td><td class="num nw">約10,100円</td><td class="num nw">約15,200円</td></tr>
+          <tr><td>10万円</td><td class="num nw">約15,100円</td><td class="num nw">約20,200円</td><td class="num nw">約30,400円</td></tr>
+          <tr><td>20万円</td><td class="num nw">約30,200円</td><td class="num nw">約40,400円</td><td class="num nw">約60,800円</td></tr>
+          <tr><td>30万円</td><td class="num nw">約45,300円</td><td class="num nw">約60,600円</td><td class="num nw">約91,300円</td></tr>
         </tbody>
       </table>
     </div>
